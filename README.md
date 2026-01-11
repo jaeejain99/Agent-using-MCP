@@ -10,14 +10,6 @@ The project implements a conversational AI agent that:
 - Uses Langgraph for orchestrating the conversation flow
 - Provides a streaming interface for real-time responses
 
-## Prerequisites
-
-- Python 3.13+
-- Node.js (for filesystem MCP server)
-- Docker (for GitHub MCP server)
-- UV package manager
-- OpenAI API key
-
 ## Project Structure
 
 ```
@@ -29,34 +21,6 @@ my_agent/
     ├── mcp_config.json # MCP server definitions
     └── local_servers/ # Custom MCP server implementations
         └── dataflow.py # Custom implementation for data loading and querying
-```
-
-## Setup
-
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd Agent-using-MCP
-```
-
-2. Create and activate a virtual environment:
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-```
-
-3. Install dependencies:
-```bash
-uv sync
-uv pip install -e .
-```
-
-4. Set up environment variables:
-Create a `.env` file with:
-```
-OPENAI_API_KEY=your_openai_api_key
-MCP_FILESYSTEM_DIR=/path/to/projects/directory
-MCP_GITHUB_PAT=your_github_personal_access_token
 ```
 
 ## MCP Servers
@@ -87,21 +51,3 @@ USER: Can you help me set up a new data science project?
 - Interact with GitHub repositories
 
 4. Type 'quit' or 'exit' to end the session.
-
-## How It Works
-
-1. The `graph.py` file defines the Langgraph agent structure:
-- Sets up the system prompt and agent state
-- Configures the LLM (GPT-4)
-- Defines the conversation flow graph
-
-2. The `client.py` file:
-- Initializes the MCP client with multiple servers
-- Handles streaming responses
-- Manages the interactive session
-
-3. MCP servers provide tools for:
-- File system operations
-- Data manipulation
-- Git operations
-- GitHub interactions

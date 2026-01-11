@@ -67,7 +67,7 @@ async def main():
     client = MultiServerMCPClient(
         connections=mcp_config
     )
-    print("✓ Client initialized")
+    print("Client initialized")
 
     # Connect to each MCP server manually
     print("Connecting to MCP servers...")
@@ -89,14 +89,14 @@ async def main():
                     args=args,
                     env=env
                 )
-                print(f"    ✓ Connected to {server_name}")
+                print(f"        Connected to {server_name}")
                 connected_count += 1
             else:
-                print(f"    ⚠️  Skipping {server_name} - unsupported transport: {transport}")
+                print(f"        Skipping {server_name} - unsupported transport: {transport}")
         except Exception as e:
-            print(f"    ❌ Failed to connect to {server_name}: {e}")
+            print(f"        Failed to connect to {server_name}: {e}")
 
-    print(f"✓ Connected to {connected_count}/{len(servers)} servers")
+    print(f"Connected to {connected_count}/{len(servers)} servers")
 
     # the get_tools() method returns a list of tools from all the connected servers
     print("Getting tools from MCP servers...")
